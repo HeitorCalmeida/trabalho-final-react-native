@@ -13,7 +13,7 @@ export const Rotas = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Catalogo"
+        initialRouteName="Login"
         screenOptions={{
           headerShown: false,
         }}
