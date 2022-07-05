@@ -14,7 +14,21 @@ export const Login = ({navigation}: any) => {
             <TouchableOpacity onPress={() => navigation.navigate('Filme')}>
                 <View style={styles.botaoEntrar}>
                     <Text style={styles.textoEntrar}>
-                        Entrar
+                    Filme
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Catalogo')}>
+                <View style={styles.botaoEntrar}>
+                    <Text style={styles.textoEntrar}>
+                    Catalogo
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Inicial')}>
+                <View style={styles.botaoEntrar}>
+                    <Text style={styles.textoEntrar}>
+                    PagInicial
                     </Text>
                 </View>
             </TouchableOpacity>
