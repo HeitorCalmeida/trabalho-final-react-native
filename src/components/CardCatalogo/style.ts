@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlign: "left",
         fontWeight: "bold",
+        paddingTop: 10,
     },
     text: {
         color: "#fff",
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
     poster: {
         width: 100,
         height: 150,
+        marginHorizontal: 10,
     },
     cardAlign: {
         flexDirection: "row",
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
         borderTopWidth: 1,
         borderTopColor: "#333",
-        paddingTop: 10,
+        paddingVertical: 6,
     },
     star: {
         marginRight: 5,

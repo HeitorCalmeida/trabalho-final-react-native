@@ -6,6 +6,7 @@ import { Catalogo } from "../screens/Catalogo";
 import { Login } from "../screens/Login";
 import { Filme } from "../screens/Filme";
 
+
 const Stack = createNativeStackNavigator();
 
 export const Rotas = () => {
