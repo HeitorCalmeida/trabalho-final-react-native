@@ -26,7 +26,7 @@ export const CardCatalogo = () => {
             runtime: "107",
             vote_average: "7.0",
             vote_count: "406",
-        },{
+        }, {
             id: "12873516",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
@@ -34,7 +34,7 @@ export const CardCatalogo = () => {
             runtime: "107",
             vote_average: "7.0",
             vote_count: "406",
-        },{
+        }, {
             id: "12873516",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
@@ -42,7 +42,7 @@ export const CardCatalogo = () => {
             runtime: "107",
             vote_average: "7.0",
             vote_count: "406",
-        },{
+        }, {
             id: "12873516",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
@@ -50,7 +50,7 @@ export const CardCatalogo = () => {
             runtime: "107",
             vote_average: "7.0",
             vote_count: "406",
-        },{
+        }, {
             id: "12873516",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
@@ -58,7 +58,7 @@ export const CardCatalogo = () => {
             runtime: "107",
             vote_average: "7.0",
             vote_count: "406",
-        },{
+        }, {
             id: "12873516",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
@@ -78,6 +78,7 @@ export const CardCatalogo = () => {
                     return (
                         <ScrollView contentContainerStyle={{ width: "100%" }} style={styles.cardAlign}>
                             <TouchableOpacity>
+                                {/* Criar o onPress pra abrir a tela de filme */}
                                 <View style={[{ flexDirection: "row" }]}>
                                     <Image source={{ uri: item.poster_path }} style={styles.poster} />
                                     <View style={styles.cardText}>
@@ -97,6 +98,6 @@ export const CardCatalogo = () => {
                     )
                 }}
             />
-        </View>
+        </View >
     )
 }
