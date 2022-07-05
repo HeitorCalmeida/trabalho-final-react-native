@@ -10,13 +10,13 @@ export const Rotas = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Catálogo"
+        initialRouteName="Catalogo"
         screenOptions={{
           headerShown: false,
         }}
       >
         <Stack.Screen name="Inicial" component={PagInicial} />
-        <Stack.Screen name="Catálogo" component={Catalogo} />
+        <Stack.Screen name="Catalogo" component={Catalogo} />
       </Stack.Navigator>
     </NavigationContainer>
   );
