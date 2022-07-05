@@ -4,17 +4,31 @@ import styles from "./style";
 
 import Icon from "../../../assets/icon.png"
 
-export const Login = () => {
+export const Login = ({navigation}: any) => {
     return (
         <View style={styles.fundoTela}>
             <Image source={Icon} style={styles.estiloIcon}/>
             <Text style={styles.bemVindo}>Bem vindo usuário!</Text>
 
             <TextInput style={styles.inputNome} placeholder={"Digite seu nome"} placeholderTextColor={"#474747"}/>
-            <TouchableOpacity onPress={() => []}>
+            <TouchableOpacity onPress={() => navigation.navigate('Filme')}>
                 <View style={styles.botaoEntrar}>
                     <Text style={styles.textoEntrar}>
-                        Entrar
+                    Filme
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Catalogo')}>
+                <View style={styles.botaoEntrar}>
+                    <Text style={styles.textoEntrar}>
+                    Catalogo
+                    </Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Inicial')}>
+                <View style={styles.botaoEntrar}>
+                    <Text style={styles.textoEntrar}>
+                    PagInicial
                     </Text>
                 </View>
             </TouchableOpacity>
