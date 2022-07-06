@@ -1,3 +1,4 @@
+
 import { StatusBar } from "expo-status-bar";
 import React, { useContext, useEffect, useState } from "react";
 import { FlatList, Image, ScrollView, Text, TextInput, View } from "react-native";
@@ -61,7 +62,9 @@ export const Filme = (props: any) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Image style={styles.buttonBack} source={Voltar} />
+            <TouchableOpacity onPress={() => props.navigation.navigate('Catalogo')}>
+                <Image style={styles.buttonBack} source={Voltar}/>
+                </TouchableOpacity>
                 <Text style={styles.titulo}>{filmee.title}</Text>
             </View>
             <ScrollView contentContainerStyle={{ alignItems: "center" }}>

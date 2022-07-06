@@ -7,7 +7,7 @@ import tv from "../../assets/icons/tv.png"
 import {CardTelaInicial} from '../../components/CardTelaInicial';
 
 
-export const TelaInicial = () => {
+export const TelaInicial = ({navigation}:any) => {
 
     return (
         <View style={styles.container}>
