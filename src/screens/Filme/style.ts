@@ -44,11 +44,42 @@ export const styles = StyleSheet.create({
     borderRadius:3,
   },
   filmeinfo:{
-    padding:5,
+    padding:15,
+    flexDirection:'row',
     marginTop:20,
     marginBottom:8,
     backgroundColor:'#21211F',
     width:'90%',
     borderRadius:10
+  },
+  generoTexto:{
+    textAlign:'center',
+    backgroundColor:'#D9D9D9',
+    borderRadius:15,
+    marginBottom:3,
+    fontSize:12.5,
+    paddingHorizontal:12,
+  },
+  nota:{
+    fontSize:13,
+    color:'white'
+  },
+  notaImg:{
+    width:25,
+    height:25,
+    marginTop:10
+  },
+  notaQtd:{
+    fontSize:13,
+    color:'white',
+    marginTop:8
+  },
+  notaVotos:{
+    fontSize:9,
+    color:'white'
+  },
+  genero:{
+    fontSize:13,
+    color:'white',
   }
 })
