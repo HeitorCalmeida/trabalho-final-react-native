@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { FlatList, Image, Text, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native';
+import React, {useState} from "react";
+import {FlatList, Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import styles from "./style";
-import { View } from 'react-native';
 
 interface CardPair {
     image: string,
@@ -20,11 +18,11 @@ export const CardInicial = () => {
         <FlatList
             numColumns={2}
             data={CardList}
-            renderItem={({ item }) => {
+            renderItem={({item}) => {
                 return (
-                    <ScrollView contentContainerStyle={{ width: "50%" }} style={[{ flexDirection: "row" }]}>
+                    <ScrollView contentContainerStyle={{width: "50%"}} style={[{flexDirection: "row"}]}>
                         <TouchableOpacity style={[styles.division, {}]}>
-                            <Image style={styles.image} source={{ uri: item.image }} />
+                            <Image style={styles.image} source={{uri: item.image}}/>
                             <View style={styles.division}>
                                 <Text style={styles.desc}>{item.desc}</Text>
                             </View>

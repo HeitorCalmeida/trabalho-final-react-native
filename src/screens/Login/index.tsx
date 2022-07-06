@@ -1,27 +1,21 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import {Image, Text, TextInput, TouchableOpacity, View} from "react-native";
 import styles from "./style";
 
 import Icon from "../../../assets/icon.png"
 
-export const Login = ({ navigation }: any) => {
+export const Login = ({navigation}: any) => {
     return (
         <View style={styles.fundoTela}>
-            <Image source={Icon} style={styles.estiloIcon} />
+            <Image source={Icon} style={styles.estiloIcon}/>
             <Text style={styles.bemVindo}>Bem vindo usuário!</Text>
 
-            <TextInput style={styles.inputNome} placeholder={"Digite seu nome"} placeholderTextColor={"#474747"} />
-            <TouchableOpacity onPress={() => navigation.navigate('Filme')}>
-                <View style={styles.botaoEntrar}>
-                    <Text style={styles.textoEntrar}>
-                        Filme
-                    </Text>
-                </View>
-            </TouchableOpacity>
+            <TextInput style={styles.inputNome} placeholder={"Digite seu nome"} placeholderTextColor={"#474747"}/>
+
             <TouchableOpacity onPress={() => navigation.navigate('Catalogo')}>
                 <View style={styles.botaoEntrar}>
                     <Text style={styles.textoEntrar}>
-                        Catalogo
+                        Entrar
                     </Text>
                 </View>
             </TouchableOpacity>
