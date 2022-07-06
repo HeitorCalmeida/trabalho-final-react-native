@@ -8,10 +8,10 @@ export const styles = StyleSheet.create({
     poster: {
         marginVertical: 25,
         borderRadius: 7,
-        borderWidth: 12,
+        borderWidth: 5,
         borderColor: '#D9D9D9',
         width: 200,
-        height: 280
+        height: 293
     },
     header: {
         backgroundColor: '#303030',

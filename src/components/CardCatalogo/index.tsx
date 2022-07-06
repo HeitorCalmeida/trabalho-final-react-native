@@ -22,6 +22,7 @@ const img = "https://image.tmdb.org/t/p/original";
 export const CardCatalogo = () => {
 
     const [listaFilmes, setListFilmes] = useState<Movies[]>([]);
+
     const navigation = useNavigation();
 
     useEffect(() => {
@@ -50,7 +51,6 @@ export const CardCatalogo = () => {
                             style={styles.cardAlign}
                         >
                             <TouchableOpacity onPress={() => teste(item.id)}>
-                                {/* Criar o onPress pra abrir a tela de filme */}
                                 <View style={[{flexDirection: "row"}]}>
                                     <Image
                                         source={{uri: `${img}${item.poster_path}`}}
