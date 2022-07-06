@@ -1,6 +1,6 @@
 import {StatusBar} from "expo-status-bar";
 import React, {useEffect, useState} from "react";
-import {FlatList, Image, ScrollView, Text, View} from "react-native";
+import {FlatList, Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import {styles} from "./style";
 import Voltar from "../../assets/images/back.png";
 import Estrela from "../../assets/icons/star.png";
@@ -58,7 +58,9 @@ export const Filme = (props: any) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
+            <TouchableOpacity onPress={() => props.navigation.navigate('Catalogo')}>
                 <Image style={styles.buttonBack} source={Voltar}/>
+                </TouchableOpacity>
                 <Text style={styles.titulo}>{filmee.title}</Text>
             </View><ScrollView contentContainerStyle={{alignItems: "center"}}>
             <Image style={styles.poster} source={{uri: `${img}${filmee.poster_path}`}}/>
