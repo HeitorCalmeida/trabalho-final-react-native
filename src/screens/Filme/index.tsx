@@ -1,86 +1,91 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useEffect, useState } from "react";
-import { FlatList, Image, ScrollView, Text, View } from "react-native";
-import { styles } from "./style";
+import {StatusBar} from "expo-status-bar";
+import React, {useEffect, useState} from "react";
+import {FlatList, Image, ScrollView, Text, View} from "react-native";
+import {styles} from "./style";
 import Voltar from "../../assets/images/back.png";
 import Estrela from "../../assets/icons/star.png";
 import api from "../../services/api";
-import { useRoute } from "@react-navigation/native";
+
 interface Movies {
-  id: string;
-  overview: string;
-  title: string;
-  poster_path: string;
-  release_date: string;
-  runtime: string;
-  vote_average: string;
-  vote_count: string;
-  genres: [
-    {
-      id: string;
-      name: string;
-    }
-  ];
+    id: string,
+    overview: string,
+    title: string,
+    poster_path: string,
+    release_date: string,
+    runtime: string,
+    vote_average: string,
+    vote_count: string,
+    genres: [
+        {
+            id: string,
+            name: string,
+        },]
 }
 
-export const Filme = () => {
-  const filme = {
-    id: "string",
-    overview:
-      "O ex-vingador Clint Barton tem uma missão aparentemente simples: voltar para sua família no Natal. Será possível? Talvez com a ajuda de Kate Bishop, uma arqueira de 22 anos que sonha em se tornar uma super-heroína. Os dois são forçados a trabalhar juntos quando uma presença do passado de Barton ameaça descarrilar muito mais do que o espírito festivo.",
-    title: "Gavião Arqueiro",
-    runtime: "61",
-    poster_path:
-      "https://image.tmdb.org/t/p/original/62qfVDg4VK3kqZFxrRztPqSbal4.jpg",
-    vote_average: "6.9",
-    vote_count: "368.95",
-    genres: [
-      {
-        id: '2',
-        name: 'Ação',
-      },
-      {
-        id: '3',
-        name: 'Aventura',
-      },
-      {
-        id: '4',
-        name: 'Luta',
-      },
-    ]
-  };
+const apiKey = "api_key=cd70ccaa5142525fa97293402321f923";
+const language = "language=pt-BR";
+const img = "https://image.tmdb.org/t/p/original";
+export const Filme = (props: any) => {
+    const idFilme = props.route.params;
+    const mec = {
+        genres: [
+            {
+                id: '10759',
+                name: 'Action & Adventure',
+            },
+            {
+                id: '18',
+                name: 'Drama',
+            }
+        ],
+    }
 
-  const [listaFilmes, setListFilmes] = useState<Movies[]>([]);
-  const [filmee, setFilme] = useState([]);
 
-  useEffect(() => {}, []);
+    const [filmee, setFilme] = useState<Movies[]>([]);
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image style={styles.buttonBack} source={Voltar} />
-        <Text style={styles.titulo}>{filme.title}</Text>
-      </View>
-      <ScrollView contentContainerStyle={{ alignItems: "center" }}>
-        <Image style={styles.poster} source={{ uri: filme.poster_path }} />
-        <Text style={styles.sinopse}>{filme.overview}</Text>
-        <Text style={styles.duracao}>Duração: {filme.runtime} min</Text>
+    useEffect(() => {
+        const init = async () => {
+            const response = await api.get(
+                `movie/${idFilme}?${apiKey}&${language}`
+            );
+            setFilme(response.data);
+        };
+        init();
+    }, []);
 
-        <View style={styles.filmeinfo}>
-          <View style={{ alignItems: "center" }}>
-            <Text style={styles.nota}>Nota</Text>
-            <Image style={styles.notaImg} source={Estrela} />
-            <Text style={styles.notaQtd}>{filme.vote_average}/10</Text>
-            <Text style={styles.notaVotos}>{filme.vote_count}</Text>
-          </View>
+    const obj = JSON.stringify(filmee);
 
-          <View style={{ alignItems: "center", marginHorizontal: 25 }}>
-            <Text style={styles.genero}>Gênero</Text>
-            {filme.genres.map(( item )=> <Text key={item.id} style={styles.generoTexto}>{item.name}</Text>)}
-          </View>
+    return (
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <Image style={styles.buttonBack} source={Voltar}/>
+                <Text style={styles.titulo}>{filmee.title}</Text>
+            </View><ScrollView contentContainerStyle={{alignItems: "center"}}>
+            <Image style={styles.poster} source={{uri: `${img}${filmee.poster_path}`}}/>
+            <Text style={styles.sinopse}>{filmee.overview}</Text>
+            <Text style={styles.duracao}>Duração: {filmee.runtime} min</Text>
+
+            <View style={styles.filmeinfo}>
+                <View style={{alignItems: "center"}}>
+                    <Text style={styles.nota}>Nota</Text>
+                    <Image style={styles.notaImg} source={Estrela}/>
+                    <Text style={styles.notaQtd}>{filmee.vote_average}/10</Text>
+                    <Text style={styles.notaVotos}>{filmee.vote_count}</Text>
+                </View>
+                <View style={{alignItems: "center", marginHorizontal: 25}}>
+                    <Text style={styles.genero}>Gênero</Text>
+                    <FlatList
+
+                        data={filmee.genres}
+                        renderItem={({item}) => {
+                            return (
+                                <Text style={styles.generoTexto}>{item.name}</Text>
+                            )
+                        }}
+                    />
+                </View>
+            </View>
+        </ScrollView><StatusBar hidden/>
         </View>
-      </ScrollView>
-      <StatusBar hidden />
-    </View>
-  );
+    );
 };
