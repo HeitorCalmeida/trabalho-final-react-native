@@ -27,7 +27,7 @@ export const CardCatalogo = () => {
             vote_average: "7.0",
             vote_count: "406",
         }, {
-            id: "12873516",
+            id: "1287351",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
             release_date: "2022-06-15",
@@ -35,7 +35,7 @@ export const CardCatalogo = () => {
             vote_average: "7.0",
             vote_count: "406",
         }, {
-            id: "12873516",
+            id: "287351",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
             release_date: "2022-06-15",
@@ -43,7 +43,7 @@ export const CardCatalogo = () => {
             vote_average: "7.0",
             vote_count: "406",
         }, {
-            id: "12873516",
+            id: "12873519",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
             release_date: "2022-06-15",
@@ -51,7 +51,7 @@ export const CardCatalogo = () => {
             vote_average: "7.0",
             vote_count: "406",
         }, {
-            id: "12873516",
+            id: "12873568",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
             release_date: "2022-06-15",
@@ -59,7 +59,7 @@ export const CardCatalogo = () => {
             vote_average: "7.0",
             vote_count: "406",
         }, {
-            id: "12873516",
+            id: "1283516",
             title: "Lightyear",
             poster_path: 'https://image.tmdb.org/t/p/original/wc3cGQUF4P2Jetawf7YqzaWQsNc.jpg',
             release_date: "2022-06-15",
