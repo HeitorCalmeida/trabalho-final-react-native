@@ -1,10 +1,12 @@
-import {StatusBar} from "expo-status-bar";
-import React, {useEffect, useState} from "react";
-import {FlatList, Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
-import {styles} from "./style";
+
+import { StatusBar } from "expo-status-bar";
+import React, { useContext, useEffect, useState } from "react";
+import { FlatList, Image, ScrollView, Text, TextInput, View } from "react-native";
+import { styles } from "./style";
 import Voltar from "../../assets/images/back.png";
 import Estrela from "../../assets/icons/star.png";
 import api from "../../services/api";
+import { AuthContext, AuthProvider } from './../../contexts/auth';
 
 interface Movies {
     id: string,
@@ -25,6 +27,7 @@ interface Movies {
 const apiKey = "api_key=cd70ccaa5142525fa97293402321f923";
 const language = "language=pt-BR";
 const img = "https://image.tmdb.org/t/p/original";
+
 export const Filme = (props: any) => {
     const idFilme = props.route.params;
     const mec = {
@@ -40,6 +43,7 @@ export const Filme = (props: any) => {
         ],
     }
 
+    const nome = useContext(AuthContext).nome
 
     const [filmee, setFilme] = useState<Movies[]>([]);
 
@@ -62,32 +66,38 @@ export const Filme = (props: any) => {
                 <Image style={styles.buttonBack} source={Voltar}/>
                 </TouchableOpacity>
                 <Text style={styles.titulo}>{filmee.title}</Text>
-            </View><ScrollView contentContainerStyle={{alignItems: "center"}}>
-            <Image style={styles.poster} source={{uri: `${img}${filmee.poster_path}`}}/>
-            <Text style={styles.sinopse}>{filmee.overview}</Text>
-            <Text style={styles.duracao}>Duração: {filmee.runtime} min</Text>
-
-            <View style={styles.filmeinfo}>
-                <View style={{alignItems: "center"}}>
-                    <Text style={styles.nota}>Nota</Text>
-                    <Image style={styles.notaImg} source={Estrela}/>
-                    <Text style={styles.notaQtd}>{filmee.vote_average}/10</Text>
-                    <Text style={styles.notaVotos}>{filmee.vote_count}</Text>
-                </View>
-                <View style={{alignItems: "center", marginHorizontal: 25}}>
-                    <Text style={styles.genero}>Gênero</Text>
-                    <FlatList
-
-                        data={filmee.genres}
-                        renderItem={({item}) => {
-                            return (
-                                <Text style={styles.generoTexto}>{item.name}</Text>
-                            )
-                        }}
-                    />
-                </View>
             </View>
-        </ScrollView><StatusBar hidden/>
+            <ScrollView contentContainerStyle={{ alignItems: "center" }}>
+                <Image style={styles.poster} source={{ uri: `${img}${filmee.poster_path}` }} />
+                <Text style={styles.sinopse}>{filmee.overview}</Text>
+                <Text style={styles.duracao}>Duração: {filmee.runtime} min</Text>
+
+                <View style={styles.filmeinfo}>
+                    <View style={{ alignItems: "center" }}>
+                        <Text style={styles.nota}>Nota</Text>
+                        <Image style={styles.notaImg} source={Estrela} />
+                        <Text style={styles.notaQtd}>{filmee.vote_average}/10</Text>
+                        <Text style={styles.notaVotos}>{filmee.vote_count}</Text>
+                    </View>
+                    <View style={{ alignItems: "center", marginHorizontal: 25 }}>
+                        <Text style={styles.genero}>Gênero</Text>
+                        <FlatList
+
+                            data={filmee.genres}
+                            renderItem={({ item }) => {
+                                return (
+                                    <Text style={styles.generoTexto}>{item.name}</Text>
+                                )
+                            }}
+                        />
+                    </View>
+                    <TextInput
+                        style={styles.filmeinfo}
+                        placeholder={`Insira sua Avaliacao abaixo ${nome} !`}
+                        placeholderTextColor={"#474747"} />
+                </View>
+            </ScrollView>
+            <StatusBar hidden />
         </View>
     );
 };
