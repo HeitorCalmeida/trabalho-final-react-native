@@ -25,10 +25,10 @@ export const Login = ({ navigation }: any) => {
                     </Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Inicial')}>
+            <TouchableOpacity onPress={() => navigation.navigate('TelaInicial')}>
                 <View style={styles.botaoEntrar}>
                     <Text style={styles.textoEntrar}>
-                        PagInicial
+                        Tela Inicial
                     </Text>
                 </View>
             </TouchableOpacity>
