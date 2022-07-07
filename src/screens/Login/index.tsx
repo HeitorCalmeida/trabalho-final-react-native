@@ -13,6 +13,12 @@ export const Login = ({ navigation }: LoginProps) => {
     const nome = useContext(AuthContext).nome;
     const setNome = useContext(AuthContext).setNome;
 
+    function entrar(){
+        if(nome!==''){
+            navigation.navigate('DrawerTelaInicial')
+        }
+    }
+
     return (
         <View style={styles.fundoTela}>
             <Image source={Icon} style={styles.estiloIcon} />
@@ -25,7 +31,7 @@ export const Login = ({ navigation }: LoginProps) => {
                 placeholder={"Digite seu nome"}
                 placeholderTextColor={"#474747"} />
 
-            <TouchableOpacity onPress={() => navigation.navigate('DrawerTelaInicial')}>
+            <TouchableOpacity onPress={() => entrar()}>
                 <View style={styles.botaoEntrar}>
                     <Text style={styles.textoEntrar}>
                         Entrar
