@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#121212',
+        alignContent: "center",
     },
     texto1: {
         color: "#fff",
@@ -25,8 +26,7 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         marginStart: 16,
-
-    }
+    },
 });
 
 export default styles
