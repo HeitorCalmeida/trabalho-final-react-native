@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useContext, useEffect, useState } from "react";
-import NumericInput from 'react-native-numeric-input'
+import NumericInput from "react-native-numeric-input";
 import {
   Image,
   ScrollView,
@@ -14,8 +14,9 @@ import Voltar from "../../assets/images/back.png";
 import Estrela from "../../assets/icons/star.png";
 import api from "../../services/api";
 import { AuthContext } from "../../contexts/auth";
-import { Avaliacao } from "./../../components/Avaliacao/index";
 import axios from "axios";
+import starVazia from "../../assets/icons/starVazia.png";
+import starCheia from "../../assets/icons/starCheia.png";
 
 interface genresProps {
   map(arg0: (item: any) => JSX.Element): React.ReactNode;
@@ -40,13 +41,14 @@ const language = "language=pt-BR";
 const img = "https://image.tmdb.org/t/p/original";
 
 export const Filme = (props: any) => {
+  const [defaultRating, setDefaultRating] = useState(1);
+  const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   //MUDE PARA SEU IPv4 - Use o comando "ipconfig" no terminal para visualizar seu IPv4 ex:000.000.0.000.
   const ip = "192.168.1.222";
   //MUDE PARA SEU IPv4
 
   const [filme, setFilme] = useState<Movies>();
-  const [nota,setNota] = useState<number>()
   const nome = useContext(AuthContext).nome;
   const idFilme = props.route.params;
 
@@ -64,7 +66,7 @@ export const Filme = (props: any) => {
         `http://${ip}:8080/avaliar`,
         {
           nome: `${nome}`,
-          nota: `${nota}`,
+          nota: `${defaultRating}`,
           nomeFilme: `${filme?.title}`,
           idFilme: `${idFilme}`,
         },
@@ -123,23 +125,24 @@ export const Filme = (props: any) => {
             <Text style={styles.aval}>
               Conte-nos o que achou do filme, {nome} !
             </Text>
-            <NumericInput onChange={value => console.log(value)} />
-            {/* <NumericInput
-            type='up-down' 
-            value={nota}
-            onChange={(nota) => setNota(nota)}
-            onLimitReached={(isMax,msg) => console.log(isMax,msg)}
-            totalWidth={100}
-            totalHeight={40}
-            minValue={1}
-            maxValue={10}
-            valueType='real'
-            rounded
-            iconStyle={{alignContent:'flex-start'}}
-            textColor='#fff'
-            borderColor='transparent'
-            upDownButtonsBackgroundColor='#45FFD4'
-             /> */}
+
+            <View style={styles.customRatingBarStyle}>
+              {maxRating.map((item, key) => {
+                return (
+                  <TouchableOpacity
+                    activeOpacity={0.7}
+                    key={item}
+                    onPress={() => setDefaultRating(item)}
+                  >
+                    <Image
+                      style={styles.starImgStyle}
+                      source={item <= defaultRating ? starCheia : starVazia}
+                    />
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+            <Text style={styles.textStyle}>{defaultRating}</Text>
             <TouchableOpacity onPress={() => enviarAvaliacao()}>
               <Text style={{ color: "white", marginTop: 20, marginBottom: 50 }}>
                 ENVIAR AVALIAÇÃO

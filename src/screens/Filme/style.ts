@@ -93,6 +93,7 @@ export const styles = StyleSheet.create({
         color: 'white',
     },
     aval: {
+        marginBottom:15,
         color: "#fff",
         marginTop: 10,
         fontSize: 16,
@@ -101,4 +102,20 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         alignItems: 'center',
     },
+    textStyle:{
+        marginTop:10,
+        textAlign:'center',
+        fontSize:23,
+        color:'#fff'
+    },
+    customRatingBarStyle:{
+        justifyContent:'center',
+        flexDirection:'row',
+        marginTop:5
+    },
+    starImgStyle:{
+        width:30,
+        height:30,
+        resizeMode:'cover'
+    }
 })
