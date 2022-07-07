@@ -13,6 +13,7 @@ import Voltar from "../../assets/images/back.png";
 import Estrela from "../../assets/icons/star.png";
 import api from "../../services/api";
 import { AuthContext } from "../../contexts/auth";
+import { Avaliacao } from './../../components/Avaliacao/index';
 
 interface genresProps {
     map(arg0: (item: any) => JSX.Element): React.ReactNode;
@@ -92,7 +93,7 @@ export const Filme = (props: any) => {
                         <Text style={styles.aval}>
                             Conte-nos o que achou do filme, {nome} !
                         </Text>
-                        {/* inserir estrelas para avaliacao */}
+                        <Avaliacao />
                     </ScrollView>
                     <StatusBar hidden />
                 </>

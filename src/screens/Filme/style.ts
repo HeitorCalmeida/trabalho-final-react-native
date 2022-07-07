@@ -95,6 +95,7 @@ export const styles = StyleSheet.create({
     aval: {
         color: "#fff",
         marginTop: 10,
+        fontSize: 16,
         alignContent: 'center',
         alignSelf: 'center',
         textAlign: 'center',
