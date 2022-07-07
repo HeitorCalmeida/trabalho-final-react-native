@@ -46,7 +46,7 @@ export const Filme = (props: any) => {
   //MUDE PARA SEU IPv4
 
   const [filme, setFilme] = useState<Movies>();
-  const [nota,setNota] = useState<number>()
+  const [nota, setNota] = useState<number>()
   const nome = useContext(AuthContext).nome;
   const idFilme = props.route.params;
 
@@ -123,23 +123,22 @@ export const Filme = (props: any) => {
             <Text style={styles.aval}>
               Conte-nos o que achou do filme, {nome} !
             </Text>
-            <NumericInput onChange={value => console.log(value)} />
-            {/* <NumericInput
-            type='up-down' 
-            value={nota}
-            onChange={(nota) => setNota(nota)}
-            onLimitReached={(isMax,msg) => console.log(isMax,msg)}
-            totalWidth={100}
-            totalHeight={40}
-            minValue={1}
-            maxValue={10}
-            valueType='real'
-            rounded
-            iconStyle={{alignContent:'flex-start'}}
-            textColor='#fff'
-            borderColor='transparent'
-            upDownButtonsBackgroundColor='#45FFD4'
-             /> */}
+            {/* <Avaliacao /> */}
+            <NumericInput
+              type='up-down'
+              value={nota}
+              onChange={(nota) => setNota(nota)}
+              onLimitReached={(isMax, msg) => console.log(isMax, msg)}
+              totalWidth={120}
+              totalHeight={50}
+              minValue={1}
+              maxValue={10}
+              valueType='real'
+              iconStyle={{ alignContent: 'flex-start' }}
+              textColor='#fff'
+              borderColor='transparent'
+              upDownButtonsBackgroundColor='#444'
+            />
             <TouchableOpacity onPress={() => enviarAvaliacao()}>
               <Text style={{ color: "white", marginTop: 20, marginBottom: 50 }}>
                 ENVIAR AVALIAÇÃO
