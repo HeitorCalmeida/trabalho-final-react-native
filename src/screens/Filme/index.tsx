@@ -123,8 +123,8 @@ export const Filme = (props: any) => {
             <Text style={styles.aval}>
               Conte-nos o que achou do filme, {nome} !
             </Text>
-            {/* <Avaliacao /> */}
-            <NumericInput
+            <NumericInput onChange={value => console.log(value)} />
+            {/* <NumericInput
             type='up-down' 
             value={nota}
             onChange={(nota) => setNota(nota)}
@@ -139,7 +139,7 @@ export const Filme = (props: any) => {
             textColor='#fff'
             borderColor='transparent'
             upDownButtonsBackgroundColor='#45FFD4'
-             />
+             /> */}
             <TouchableOpacity onPress={() => enviarAvaliacao()}>
               <Text style={{ color: "white", marginTop: 20, marginBottom: 50 }}>
                 ENVIAR AVALIAÇÃO
