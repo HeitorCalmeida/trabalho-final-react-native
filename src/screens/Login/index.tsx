@@ -20,8 +20,8 @@ export const Login = ({ navigation }: LoginProps) => {
 
             <TextInput
                 style={styles.inputNome}
-                value={name}
-                onChangeText={(text) => setName(text)}
+                value={nome}
+                onChangeText={(text) => setNome(text)}
                 placeholder={"Digite seu nome"}
                 placeholderTextColor={"#474747"} />
 
