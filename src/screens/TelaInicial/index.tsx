@@ -18,7 +18,7 @@ import { CardTelaInicial } from '../../components/CardTelaInicial';
 
 
 export const TelaInicial = ({navigation}:any) => {
-
+//Renan vai dar certo no que quiser!
     return (
         <View style={styles.container}>
 
