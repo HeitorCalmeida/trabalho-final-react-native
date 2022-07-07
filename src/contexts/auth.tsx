@@ -9,7 +9,7 @@ export const AuthContext = createContext<TipoAuthContext>({
 })
 
 export const AuthProvider = ({ children }) => {
-    const [nome, setNome] = useState<string>("");
+    const [nome, setNome] = useState<string>('');
 
     return (
         <AuthContext.Provider

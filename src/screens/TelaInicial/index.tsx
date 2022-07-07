@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, ScrollView } from 'react-native';
 import styles from "./style"
 import filmes from "../../assets/icons/filmes.png"
 import tv from "../../assets/icons/tv.png"
@@ -18,42 +18,39 @@ import { CardTelaInicial } from '../../components/CardTelaInicial';
 export const TelaInicial = ({ navigation }: any) => {
 
     return (
-        <View style={styles.container}>
-
+        <ScrollView style={styles.container}>
 
             <View style={{ flexDirection: 'row', marginBottom: 10, marginTop: 40, }}>
                 <Image source={filmes} style={styles.image} />
                 <Text style={styles.texto1}>Filmes</Text>
-
             </View>
 
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial acao={() => navigation.navigate('Catalogo')} titulo='Filmes Populares' />
-                <CardTelaInicial titulo='Filmes de Drama' />
+                <CardTelaInicial acao={() => navigation.navigate('Catalogo')} foto={popularf} />
+                <CardTelaInicial foto={dramaf} />
             </View>
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial titulo='Filmes de Comédia' />
-                <CardTelaInicial titulo='Filmes de Ação' />
+                <CardTelaInicial foto={comediaf} />
+                <CardTelaInicial foto={acaof} />
             </View>
-
 
             <View style={{ flexDirection: 'row' }}>
                 <Image source={tv} style={styles.image2} />
                 <Text style={styles.texto2}>Streaming e TV</Text>
 
             </View>
-            
+
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial titulo='Séries Populares' />
-                <CardTelaInicial titulo='Séries de Drama' />
+                <CardTelaInicial foto={populars} />
+                <CardTelaInicial foto={dramas} />
             </View>
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial titulo='Séries de Comédia' />
-                <CardTelaInicial titulo='Séries de Ação' />
+                <CardTelaInicial foto={comedias} />
+                <CardTelaInicial foto={acaos} />
             </View>
 
             <StatusBar hidden />
-        </View>
+        </ScrollView>
     );
 }
 
