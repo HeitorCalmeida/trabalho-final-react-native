@@ -14,7 +14,6 @@ export const Login = ({ navigation }: LoginProps) => {
     const setNome = useContext(AuthContext).setNome;
 
     function gravar() {
-
         try {
             AsyncStorage.setItem('@nome_api', nome)
         } catch (e) {
