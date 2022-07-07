@@ -4,12 +4,13 @@ import { styles } from "./styles";
 
 interface Card {
     titulo: string,
-    foto: any,
+    foto?: any,
+    acao?: any,
 }
 
-export const CardTelaInicial = ({ titulo, foto }: Card) => {
+export const CardTelaInicial = ({ titulo, foto, acao }: Card) => {
     return (
-        <TouchableOpacity style={styles.container} >
+        <TouchableOpacity onPress={acao} style={styles.container} >
             <Text style={styles.texto1}>{titulo}</Text>
         </TouchableOpacity>
     )

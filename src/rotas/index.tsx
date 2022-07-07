@@ -17,13 +17,14 @@ export type DrawerList = {
 
 function MyDrawer() {
   return (
-    <Drawer.Navigator useLegacyImplementation = {true}
+    <Drawer.Navigator 
+    initialRouteName="TelaInicial" 
+    useLegacyImplementation = {true}
     screenOptions={{
         headerShown: false,
         drawerActiveBackgroundColor: '#fff'
     }}>
       <Drawer.Screen name="TelaInicial" component={TelaInicial} />
-      <Drawer.Screen name="Catalogo" component={Catalogo} />
     </Drawer.Navigator>
   );
 }
@@ -33,6 +34,7 @@ export type StackList = {
     DrawerTelaInicial: undefined;
     Login: undefined;
     Filme: undefined;
+    Catalogo: undefined;
 }
 
 export const Rotas = () => {
@@ -47,6 +49,7 @@ export const Rotas = () => {
                 <Stack.Screen name="DrawerTelaInicial" component={MyDrawer}/>
                 <Stack.Screen name="Login" component={Login}/>
                 <Stack.Screen name="Filme" component={Filme}/>
+                <Stack.Screen name="Catalogo" component={Catalogo}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
