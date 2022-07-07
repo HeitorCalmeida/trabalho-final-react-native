@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { AsyncStorage, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
 import Icon from "../../../assets/icon.png";
 import { AuthContext } from "../../contexts/auth";
 import styles from "./style";
@@ -13,9 +13,19 @@ export const Login = ({ navigation }: LoginProps) => {
     const nome = useContext(AuthContext).nome;
     const setNome = useContext(AuthContext).setNome;
 
-    function entrar(){
-        if(nome!==''){
-            navigation.navigate('DrawerTelaInicial')
+    function gravar() {
+
+        try {
+            AsyncStorage.setItem('@nome_api', nome)
+        } catch (e) {
+            alert(e);
+        }
+    }
+
+    function entrar() {
+        if (nome !== '') {
+            navigation.navigate('DrawerTelaInicial');
+            gravar();
         }
     }
 
