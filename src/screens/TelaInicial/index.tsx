@@ -1,16 +1,25 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Image, ScrollView, Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import styles from "./style"
 import filmes from "../../assets/icons/filmes.png"
 import tv from "../../assets/icons/tv.png"
-import { CardTelaInicial } from '../../components/CardTelaInicial';
+import acaof from "../../assets/images/acaof.png"
+import comediaf from "../../assets/images/comediaf.png"
+import dramaf from "../../assets/images/dramaf.png"
+import popularf from "../../assets/images/popularf.png"
+import acaos from "../../assets/images/acaos.png"
+import comedias from "../../assets/images/comedias.png"
+import dramas from "../../assets/images/dramas.png"
+import populars from "../../assets/images/populars.png"
 
+import { CardTelaInicial } from '../../components/CardTelaInicial';
 
 export const TelaInicial = ({ navigation }: any) => {
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
+
 
             <View style={{ flexDirection: 'row', marginBottom: 10, marginTop: 40, }}>
                 <Image source={filmes} style={styles.image} />
@@ -33,7 +42,7 @@ export const TelaInicial = ({ navigation }: any) => {
                 <Text style={styles.texto2}>Streaming e TV</Text>
 
             </View>
-
+            
             <View style={{ flexDirection: 'row', }}>
                 <CardTelaInicial titulo='Séries Populares' />
                 <CardTelaInicial titulo='Séries de Drama' />
@@ -44,7 +53,7 @@ export const TelaInicial = ({ navigation }: any) => {
             </View>
 
             <StatusBar hidden />
-        </ScrollView>
+        </View>
     );
 }
 
