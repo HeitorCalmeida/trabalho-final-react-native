@@ -7,7 +7,7 @@ import tv from "../../assets/icons/tv.png"
 import { CardTelaInicial } from '../../components/CardTelaInicial';
 
 
-export const TelaInicial = ({ navigation }: any) => {
+export const TelaInicial = ({navigation}:any) => {
 
     return (
         <ScrollView style={styles.container}>
@@ -19,7 +19,7 @@ export const TelaInicial = ({ navigation }: any) => {
             </View>
 
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial titulo='Filmes Populares' foto="" />
+                <CardTelaInicial acao={()=>navigation.navigate('Catalogo')} titulo='Filmes Populares' foto="" />
                 <CardTelaInicial titulo='Filmes de Drama' foto="" />
             </View>
             <View style={{ flexDirection: 'row', }}>
