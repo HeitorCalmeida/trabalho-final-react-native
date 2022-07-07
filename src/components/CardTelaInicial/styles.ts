@@ -9,12 +9,17 @@ export const styles = StyleSheet.create({
         height: 170,
         marginLeft: 25,
         marginVertical: 20,
+        alignContent: 'center',
+        alignItems: 'center',
 
     },
-    texto1: {
-        marginVertical: 6,
-        color: '#fff',
+    componente: {
+        width:150,
+        height:150,
+        borderRadius: 5,
         alignSelf: 'center',
+        marginTop: 10,
+        
     }
 });
 
