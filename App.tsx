@@ -1,6 +1,13 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import {Rotas} from './src/rotas';
+import { AuthProvider } from './src/contexts/auth';
+import { Rotas } from './src/rotas';
+import 'react-native-gesture-handler';
 
 export default function App() {
-    return <Rotas/>
+    return (
+        <AuthProvider>
+            <Rotas />
+        </AuthProvider>
+    )
 }
