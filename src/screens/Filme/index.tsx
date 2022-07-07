@@ -1,22 +1,14 @@
+import axios from "axios";
 import { StatusBar } from "expo-status-bar";
 import React, { useContext, useEffect, useState } from "react";
-import NumericInput from "react-native-numeric-input";
-import {
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { styles } from "./style";
-import Voltar from "../../assets/images/back.png";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Estrela from "../../assets/icons/star.png";
-import api from "../../services/api";
-import { AuthContext } from "../../contexts/auth";
-import axios from "axios";
-import starVazia from "../../assets/icons/starVazia.png";
 import starCheia from "../../assets/icons/starCheia.png";
+import starVazia from "../../assets/icons/starVazia.png";
+import Voltar from "../../assets/images/back.png";
+import { AuthContext } from "../../contexts/auth";
+import api from "../../services/api";
+import { styles } from "./style";
 
 interface genresProps {
   map(arg0: (item: any) => JSX.Element): React.ReactNode;
@@ -125,7 +117,6 @@ export const Filme = (props: any) => {
             <Text style={styles.aval}>
               Conte-nos o que achou do filme, {nome} !
             </Text>
-
             <View style={styles.customRatingBarStyle}>
               {maxRating.map((item, key) => {
                 return (

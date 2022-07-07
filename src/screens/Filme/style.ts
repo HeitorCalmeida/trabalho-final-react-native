@@ -95,7 +95,7 @@ export const styles = StyleSheet.create({
     aval: {
         marginBottom:15,
         color: "#fff",
-        marginTop: 10,
+        marginVertical: 16,
         fontSize: 16,
         alignContent: 'center',
         alignSelf: 'center',
