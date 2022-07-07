@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -23,9 +23,13 @@ const styles = StyleSheet.create({
     },
     titulo: {
         color: 'white',
-        fontSize: 20,
-        marginTop: 10,
-        marginLeft: 15
+        fontSize: 16,
+        marginLeft: 15,
+        width: 300,
+        alignContent: 'center',
+        alignSelf: 'center',
+        textAlign: 'center',
+        alignItems: 'center',
     },
 });
 
