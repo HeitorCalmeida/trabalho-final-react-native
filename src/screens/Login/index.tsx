@@ -11,9 +11,7 @@ type LoginProps = NativeStackScreenProps<StackList, "Login">
 export const Login = ({ navigation }: LoginProps) => {
 
     const nome = useContext(AuthContext).nome;
-
-    //apagar dps
-    const [name, setName] = useState('');
+    const setNome = useContext(AuthContext).setNome;
 
     return (
         <View style={styles.fundoTela}>
