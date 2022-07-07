@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
@@ -8,9 +8,11 @@ export const styles = StyleSheet.create({
         width: 170,
         height: 170,
         marginLeft: 25,
-        marginVertical: 10,
+        marginVertical: 20,
+
     },
     texto1: {
+        marginVertical: 6,
         color: '#fff',
         alignSelf: 'center',
     }

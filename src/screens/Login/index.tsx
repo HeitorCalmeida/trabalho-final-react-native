@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import styles from "./style";
+import React, { useContext, useState } from "react";
 import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import Icon from "../../../assets/icon.png"
+import Icon from "../../../assets/icon.png";
+import { AuthContext } from "../../contexts/auth";
+import styles from "./style";
 
 
 export const Login = ({ navigation }: any) => {
 
-    const [name, setName] = useState('');
+    const nome = useContext(AuthContext).nome;
 
     return (
         <View style={styles.fundoTela}>
@@ -16,8 +16,8 @@ export const Login = ({ navigation }: any) => {
 
             <TextInput
                 style={styles.inputNome}
-                value={name}
-                onChangeText={(text) => setName(text)}
+                value={nome}
+                onChangeText={(text) => setNome(text)}
                 placeholder={"Digite seu nome"}
                 placeholderTextColor={"#474747"} />
 

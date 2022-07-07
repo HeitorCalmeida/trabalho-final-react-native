@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
@@ -8,16 +8,19 @@ export const styles = StyleSheet.create({
     poster: {
         marginVertical: 25,
         borderRadius: 7,
-        borderWidth: 5,
-        borderColor: '#D9D9D9',
         width: 200,
-        height: 293
+        height: 293,
+        alignContent: 'center',
+        alignSelf: 'center',
+        textAlign: 'center',
+        alignItems: 'center',
     },
     header: {
-        backgroundColor: '#303030',
+        backgroundColor: '#333',
         width: '100%',
-        height: 50,
-        flexDirection: 'row'
+        height: 54,
+        flexDirection: 'row',
+        paddingVertical: 2,
     },
     buttonBack: {
         marginTop: 4,
@@ -27,16 +30,23 @@ export const styles = StyleSheet.create({
     },
     titulo: {
         color: 'white',
-        fontSize: 20,
-        marginTop: 10,
-        marginLeft: 15
+        fontSize: 16,
+        marginLeft: 15,
+        width: 300,
+        alignContent: 'center',
+        alignSelf: 'center',
+        textAlign: 'center',
+        alignItems: 'center',
     },
     sinopse: {
-        margin: 30,
-        marginTop: 8,
-        marginBottom: 18,
+        marginTop: 4,
+        marginBottom: 20,
+        maxWidth: 350,
         color: '#fff',
-        textAlign: 'center'
+        textAlign: 'left',
+        alignContent: 'center',
+        alignSelf: 'center',
+        alignItems: 'center',
     },
     duracao: {
         padding: 3,
@@ -81,5 +91,13 @@ export const styles = StyleSheet.create({
     genero: {
         fontSize: 13,
         color: 'white',
-    }
+    },
+    aval: {
+        color: "#fff",
+        marginTop: 10,
+        alignContent: 'center',
+        alignSelf: 'center',
+        textAlign: 'center',
+        alignItems: 'center',
+    },
 })

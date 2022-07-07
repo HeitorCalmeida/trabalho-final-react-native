@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         textAlign: "left",
         fontWeight: "bold",
         paddingTop: 10,
+        width: 250,
     },
     text: {
         color: "#fff",
