@@ -7,7 +7,7 @@ import tv from "../../assets/icons/tv.png"
 import { CardTelaInicial } from '../../components/CardTelaInicial';
 
 
-export const TelaInicial = ({navigation}:any) => {
+export const TelaInicial = ({ navigation }: any) => {
 
     return (
         <ScrollView style={styles.container}>
@@ -19,12 +19,12 @@ export const TelaInicial = ({navigation}:any) => {
             </View>
 
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial acao={()=>navigation.navigate('Catalogo')} titulo='Filmes Populares' foto="" />
-                <CardTelaInicial titulo='Filmes de Drama' foto="" />
+                <CardTelaInicial acao={() => navigation.navigate('Catalogo')} titulo='Filmes Populares' />
+                <CardTelaInicial titulo='Filmes de Drama' />
             </View>
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial titulo='Filmes de Comédia' foto="" />
-                <CardTelaInicial titulo='Filmes de Ação' foto="" />
+                <CardTelaInicial titulo='Filmes de Comédia' />
+                <CardTelaInicial titulo='Filmes de Ação' />
             </View>
 
 
@@ -35,12 +35,12 @@ export const TelaInicial = ({navigation}:any) => {
             </View>
 
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial titulo='Séries Populares' foto="" />
-                <CardTelaInicial titulo='Séries de Drama' foto="" />
+                <CardTelaInicial titulo='Séries Populares' />
+                <CardTelaInicial titulo='Séries de Drama' />
             </View>
             <View style={{ flexDirection: 'row', }}>
-                <CardTelaInicial titulo='Séries de Comédia' foto="" />
-                <CardTelaInicial titulo='Séries de Ação' foto="" />
+                <CardTelaInicial titulo='Séries de Comédia' />
+                <CardTelaInicial titulo='Séries de Ação' />
             </View>
 
             <StatusBar hidden />

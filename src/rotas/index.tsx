@@ -22,7 +22,7 @@ function MyDrawer() {
     useLegacyImplementation = {true}
     screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: '#fff'
+        drawerActiveBackgroundColor: '#222'
     }}>
       <Drawer.Screen name="TelaInicial" component={TelaInicial} />
     </Drawer.Navigator>
