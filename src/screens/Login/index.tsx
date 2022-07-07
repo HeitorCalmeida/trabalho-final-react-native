@@ -6,12 +6,12 @@ import styles from "./style";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackList } from "../../rotas";
 
-type LoginProps = NativeStackScreenProps<StackList,"Login">
+type LoginProps = NativeStackScreenProps<StackList, "Login">
 
 export const Login = ({ navigation }: LoginProps) => {
 
     const nome = useContext(AuthContext).nome;
-    
+
     //apagar dps
     const [name, setName] = useState('');
 
@@ -30,7 +30,7 @@ export const Login = ({ navigation }: LoginProps) => {
             <TouchableOpacity onPress={() => navigation.navigate('DrawerTelaInicial')}>
                 <View style={styles.botaoEntrar}>
                     <Text style={styles.textoEntrar}>
-                        Tela Inicial
+                        Entrar
                     </Text>
                 </View>
             </TouchableOpacity>
