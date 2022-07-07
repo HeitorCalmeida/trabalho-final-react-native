@@ -1,7 +1,7 @@
 import axios from "axios";
 import { StatusBar } from "expo-status-bar";
 import React, { useContext, useEffect, useState } from "react";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { AsyncStorage, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Estrela from "../../assets/icons/star.png";
 import starCheia from "../../assets/icons/starCheia.png";
 import starVazia from "../../assets/icons/starVazia.png";
@@ -74,7 +74,7 @@ export const Filme = (props: any) => {
       })
       .catch((error) => console.log(error));
   }
-
+  
   return (
     <View style={styles.container}>
       {filme && (

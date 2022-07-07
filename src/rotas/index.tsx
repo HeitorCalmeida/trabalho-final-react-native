@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {NavigationContainer} from "@react-navigation/native";
 import {Catalogo} from "../screens/Catalogo";
@@ -7,7 +7,7 @@ import {Filme} from "../screens/Filme";
 import {EmBreve} from "../screens/EmBreve";
 import {TelaInicial} from "../screens/TelaInicial";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Drawer = createDrawerNavigator<DrawerList>();
 
@@ -16,6 +16,8 @@ export type DrawerList = {
     TelaInicial: undefined;
     EmBreve: undefined;
 }
+
+
 
 function MyDrawer() {
   return (
@@ -50,10 +52,28 @@ export type StackList = {
 }
 
 export const Rotas = () => {
+
+    const [rota,setRota] = useState<any>("Login");
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+              const value = await AsyncStorage.getItem('@storage_Key')
+              if(value !== null) {
+                console.log(`${value} mec`)
+                setRota("DrawerTelaInicial")
+              }
+            } catch(e) {
+              console.log(e)
+            }
+          }
+        getData();
+      }, []);
+
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Login"
+                initialRouteName={rota}
                 screenOptions={{
                     headerShown: false,
                 }}
