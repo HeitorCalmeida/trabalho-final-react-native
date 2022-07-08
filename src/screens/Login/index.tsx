@@ -18,7 +18,7 @@ export const Login = ({ navigation }: LoginProps) => {
     try {
       await AsyncStorage.setItem("@storage_Key", nome);
       console.log(`${nome} coe`)
-    } catch (e) {console.log(e)}
+    } catch (e) { console.log(e) }
   };
 
   function entrar() {
