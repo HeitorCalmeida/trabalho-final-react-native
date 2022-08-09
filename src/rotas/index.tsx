@@ -51,7 +51,7 @@ export type StackList = {
     EmBreve: undefined;
 }
 
-export const Rotas = () => {
+export const Rotas = (navigation:any) => {
 
     const [rota,setRota] = useState<any>("Login");
 
@@ -60,7 +60,7 @@ export const Rotas = () => {
             try {
               const value = await AsyncStorage.getItem('@storage_Key')
               if(value !== null) {
-                console.log(`${value} mec`)
+                console.log(`VALOR DO ASSYNC ${value}`)
                 setRota("DrawerTelaInicial")
               }
             } catch(e) {

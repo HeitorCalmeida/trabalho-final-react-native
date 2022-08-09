@@ -1,14 +1,17 @@
 import axios from "axios";
 import { StatusBar } from "expo-status-bar";
 import React, { useContext, useEffect, useState } from "react";
-import { AsyncStorage, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Estrela from "../../assets/icons/star.png";
 import starCheia from "../../assets/icons/starCheia.png";
 import starVazia from "../../assets/icons/starVazia.png";
 import Voltar from "../../assets/images/back.png";
 import { AuthContext } from "../../contexts/auth";
-import api from "../../services/api";
+import api, { api2 } from "../../services/api";
 import { styles } from "./style";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import jwtDecode, { JwtPayload } from "jwt-decode";
+import {decode as atob, encode as btoa} from 'base-64';
 
 interface genresProps {
   map(arg0: (item: any) => JSX.Element): React.ReactNode;
@@ -31,39 +34,60 @@ interface Movies {
 const apiKey = "api_key=cd70ccaa5142525fa97293402321f923";
 const language = "language=pt-BR";
 const img = "https://image.tmdb.org/t/p/original";
+const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnYWJlemsyIiwiZXhwIjoxNjU3NTI0Mzk3fQ.uNF11Z_nIv4gx8n_FiK69kWJ6mfFJ4vkwI9KvfJIiRLz9QY8OvAHA5CcA8ADIR9l0cRDkUhL-StG7U_iQZV1XQ'
 
 export const Filme = (props: any) => {
   const [defaultRating, setDefaultRating] = useState(1);
-  const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [maxRating, setMaxRating] = useState([1, 2, 3, 4, 5]);
 
   //MUDE PARA SEU IPv4 - Use o comando "ipconfig" no terminal para visualizar seu IPv4 ex:000.000.0.000.
   const ip = "192.168.1.222";
   //MUDE PARA SEU IPv4
 
+  const [tokenU, setTokenU] = useState('');
+  const [userData, setUserData] = useState<JwtPayload>();
   const [filme, setFilme] = useState<Movies>();
   const nome = useContext(AuthContext).nome;
   const idFilme = props.route.params;
 
   useEffect(() => {
-    const init = async () => {
-      const response = await api.get(`movie/${idFilme}?${apiKey}&${language}`);
-      setFilme(response.data);
-    };
-    init();
+    getFilme();
+    getTokenUser();
+    
   }, []);
+
+  const getFilme = async () => {
+    const response = await api.get(`movie/${idFilme}?${apiKey}&${language}`);
+    setFilme(response.data);
+  };
+
+  const getTokenUser = async () => {
+    try {
+      const value = await AsyncStorage.getItem('token')
+      if(value !== null) {
+        setTokenU(JSON.parse(value));
+        setUserData(jwtDecode<JwtPayload>(JSON.parse(value)));
+        // var teste = JSON.parse(atob(tokenU.split('.')[1])).sub.split('-')[0]
+
+      }
+    } catch(e) {
+      console.log(e)
+    }
+  }
 
   function enviarAvaliacao() {
     axios
       .post(
-        `http://${ip}:8080/avaliar`,
+        `${api2}api/avaliar`,
         {
-          nome: `${nome}`,
           nota: `${defaultRating}`,
           nomeFilme: `${filme?.title}`,
           idFilme: `${idFilme}`,
+          usuario: {id: `${userData?.sub?.split('-')[0]}`}
         },
         {
           headers: {
+            "Authorization":`Bearer ${token}`,
             "Content-Type": "application/json",
             Accept: "application/json",
           },
@@ -77,6 +101,7 @@ export const Filme = (props: any) => {
   
   return (
     <View style={styles.container}>
+      {/* {console.log(userData)} */}
       {filme && (
         <>
           <View style={styles.header}>
