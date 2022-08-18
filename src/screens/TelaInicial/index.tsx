@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, Image, ScrollView } from 'react-native';
+import { Text, View, Image, ScrollView, Button } from 'react-native';
 import styles from "./style"
 import filmes from "../../assets/icons/filmes.png"
 import tv from "../../assets/icons/tv.png"
@@ -14,11 +14,16 @@ import dramas from "../../assets/images/dramas.png"
 import populars from "../../assets/images/populars.png"
 
 import { CardTelaInicial } from '../../components/CardTelaInicial';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const TelaInicial = ({navigation}:any) => {
 
     return (
         <ScrollView style={styles.container}>
+            <Button onPress={()=>{
+                AsyncStorage.removeItem('token');
+                navigation.navigate('Login');
+                }} title='logout'/>
         
             <View style={{ flexDirection: 'row', marginBottom: 10, marginTop: 40, }}>
                 <Image source={filmes} style={styles.image} />

@@ -13,6 +13,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwtDecode, { JwtPayload } from "jwt-decode";
 import {decode as atob, encode as btoa} from 'base-64';
 
+
 interface genresProps {
   map(arg0: (item: any) => JSX.Element): React.ReactNode;
   id: string;
