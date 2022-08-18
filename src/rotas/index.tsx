@@ -8,6 +8,7 @@ import {EmBreve} from "../screens/EmBreve";
 import {TelaInicial} from "../screens/TelaInicial";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Button } from "@mui/material";
 
 const Drawer = createDrawerNavigator<DrawerList>();
 
@@ -53,27 +54,10 @@ export type StackList = {
 
 export const Rotas = (navigation:any) => {
 
-    const [rota,setRota] = useState<any>("Login");
-
-    useEffect(() => {
-        const getData = async () => {
-            try {
-              const value = await AsyncStorage.getItem('@storage_Key')
-              if(value !== null) {
-                console.log(`VALOR DO ASSYNC ${value}`)
-                setRota("DrawerTelaInicial")
-              }
-            } catch(e) {
-              console.log(e)
-            }
-          }
-        getData();
-      }, []);
-
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName={rota}
+                initialRouteName={"Login"}
                 screenOptions={{
                     headerShown: false,
                 }}
